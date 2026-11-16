@@ -1,0 +1,10 @@
+[Unit]
+Description=Prune old InboxOps log entries
+
+[Service]
+Type=oneshot
+User=inboxops
+Group=inboxops
+WorkingDirectory=/opt/inboxops
+EnvironmentFile=/opt/inboxops/.env
+ExecStart=/opt/inboxops/.venv/bin/python -m scripts.prune_logs --days 30
